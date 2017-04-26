@@ -12,7 +12,7 @@ class DeployForm(forms.Form):
 		try:
 			dirpath = tempfile.mkdtemp()
 			print(dirpath)
-			checkout_project(self.cleaned_data['url_build_jenkins'], dirpath)
+			checkout_project(self.cleaned_data['url_project_repositorio'], dirpath)
 			compile_project(dirpath)
 			print(get_version_project(dirpath))
 		finally:

@@ -3,11 +3,11 @@ from django import forms
 import subprocess, tempfile, os, re, errno, shutil
 
 class DeployForm(forms.Form):
-	url_build_jenkins = forms.CharField(label='URL Build Jenkins')
+	url_project_repositorio = forms.CharField(label='URL Projeto Repositório')
 	ip_destination = forms.CharField(label='IP Destino')
 
 	def execute(self):
-		print(self.cleaned_data['url_build_jenkins'])
+		print(self.cleaned_data['url_project_repositorio'])
 		print(self.cleaned_data['ip_destination'])
 		try:
 			dirpath = tempfile.mkdtemp()

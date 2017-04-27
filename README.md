@@ -1,5 +1,5 @@
 # devops
 Compatible with linux, necessary resources installed and configured:
-Maven(mvn)
-Java
+Maven(mvn),
+Java,
 Subversion Client(svn)

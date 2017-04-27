@@ -13,11 +13,10 @@ class DeployForm(forms.Form):
         try:
             dirpath = tempfile.mkdtemp()
             logger.info('Create dir temp: {}'.format(dirpath))
-            checkout_project(self.cleaned_data['url_project_repository'], dirpath)
-            compile_project(dirpath)
+            checkout_project(self.cleaned_data['url_project_repository'], dirpath, logger)
+            compile_project(dirpath, logger)
             version = get_version_project(dirpath)
             create_tag_svn("TAG_VER_{}".format(version), self.cleaned_data['url_project_repository'], logger)
-            logger.info('Deploy finalizado')
         except Exception as ex:
             logger.error(ex, exc_info=True)
         finally:
@@ -27,11 +26,13 @@ class DeployForm(forms.Form):
                 if exc.errno != errno.ENOENT:
                     raise
 
-def checkout_project(url, dirpath):
+def checkout_project(url, dirpath, logger):
     subprocess.call('svn checkout {0} {1}'.format(url, dirpath) , shell=True)
+    logger.info('Checkout project: {} '.format(url))
 
-def compile_project(dirpath):
+def compile_project(dirpath, logger):
     subprocess.call('cd {0}; mvn install -Dmaven.test.skip=true'.format(dirpath), shell=True)
+    logger.info('Compiled project')
 
 def get_version_project(dirpath):
     path_parametros = 'ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
@@ -43,10 +44,10 @@ def create_tag_svn(version, url, logger):
 
     tags = subprocess.check_output('svn ls {}'.format(url_tags), shell=True)
     if bytes(version,"utf-8") in tags:
-        logger.info('Removendo TAG: {}'.format(version))
-        subprocess.call('svn delete {0}{1} -m "Removendo TAG Automaticamente"'.format(url_tags, version), shell=True)
-    logger.info('Criando TAG: {0} -> {1}{2}'.format(url, url_tags, version))
-    subprocess.call('svn copy {0} {1}{2} -m "Criando TAG Automaticamente"'.format(url, url_tags.replace('\n',''), version),shell=True)
+        logger.info('Removing old tag: {}'.format(version))
+        subprocess.call('svn delete {0}{1} -m "Removendo TAG Automaticamente Sistema Deploy"'.format(url_tags, version), shell=True)
+    logger.info('Create TAG: {0} -> {1}{2}'.format(url, url_tags, version))
+    subprocess.call('svn copy {0} {1}{2} -m "Criando TAG Automaticamente Sistema Deploy"'.format(url, url_tags.replace('\n',''), version),shell=True)
 
 
 def create_log_deploy():

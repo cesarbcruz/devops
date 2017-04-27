@@ -1,24 +1,4 @@
-2017-04-27 17:10:33,746 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/E
-2017-04-27 17:10:33,746 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
-2017-04-27 17:10:33,746 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmpjnakpk05
-2017-04-27 17:10:35,757 - continuousdelivery.forms - ERROR - [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
-Traceback (most recent call last):
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 18, in execute
-    version = get_version_project(dirpath)
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 38, in get_version_project
-    conteudo_arquivo = open(os.path.join(dirpath, path_parametros)).read()
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
-0:35,757 - continuousdelivery.forms - ERROR - [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
-Traceback (most recent call last):
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 18, in execute
-    version = get_version_project(dirpath)
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 38, in get_version_project
-    conteudo_arquivo = open(os.path.join(dirpath, path_parametros)).read()
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
-0:35,757 - continuousdelivery.forms - ERROR - [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
-Traceback (most recent call last):
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 18, in execute
-    version = get_version_project(dirpath)
-  File "/home/cesar/LOGIC/repositorio/devops/DevOps/continuousdelivery/forms.py", line 38, in get_version_project
-    conteudo_arquivo = open(os.path.join(dirpath, path_parametros)).read()
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpjnakpk05/ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
+2017-04-27 17:32:41,432 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
+2017-04-27 17:32:41,433 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
+2017-04-27 17:32:41,433 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmp597jr49o
+2017-04-27 17:33:02,747 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 

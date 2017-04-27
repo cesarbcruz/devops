@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e49a037f-2e50-4db8-8de3-a24e96e396e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy.log" afterPath="$PROJECT_DIR$/deploy.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/forms.py" afterPath="$PROJECT_DIR$/continuousdelivery/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/templates/sucess_deploy.html" afterPath="$PROJECT_DIR$/continuousdelivery/templates/sucess_deploy.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/img/continuous-delivery.png" afterPath="$PROJECT_DIR$/continuousdelivery/static/img/continuous-delivery.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/templates/base.html" afterPath="$PROJECT_DIR$/continuousdelivery/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DevOps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,6 +35,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/continuousdelivery/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4473684">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="continuous-delivery.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/continuousdelivery/static/img/continuous-delivery.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="sucess_deploy.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/continuousdelivery/templates/sucess_deploy.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,20 +66,18 @@
         <entry file="file://$PROJECT_DIR$/deploy.log">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="121" selection-start-line="0" selection-start-column="121" selection-end-line="0" selection-end-column="121" />
+              <caret line="3" column="121" selection-start-line="3" selection-start-column="121" selection-end-line="3" selection-end-column="121" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3172044">
-              <caret line="49" column="149" selection-start-line="49" selection-start-column="149" selection-end-line="49" selection-end-column="149" />
-              <folding>
-                <element signature="e#24#48#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.41666666">
+              <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +106,7 @@
         <option value="$PROJECT_DIR$/deploy.log" />
         <option value="$PROJECT_DIR$/continuousdelivery/templates/sucess_deploy.html" />
         <option value="$PROJECT_DIR$/continuousdelivery/forms.py" />
+        <option value="$PROJECT_DIR$/continuousdelivery/templates/base.html" />
       </list>
     </option>
   </component>
@@ -155,6 +171,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="continuousdelivery" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -177,6 +225,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="continuousdelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="continuousdelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DevOps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -188,6 +290,11 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/continuousdelivery/static" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.devops">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -344,7 +451,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="-14" width="1875" height="1104" extended-state="7" />
+    <frame x="55" y="-14" width="1875" height="1104" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -408,18 +515,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/continuousdelivery/templates/deploy.html">
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="121" selection-start-line="0" selection-start-column="121" selection-end-line="0" selection-end-column="121" />
+        <state vertical-scroll-proportion="-0.41666666">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -432,13 +531,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
+    <entry file="file://$PROJECT_DIR$/deploy.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3172044">
-          <caret line="49" column="149" selection-start-line="49" selection-start-column="149" selection-end-line="49" selection-end-column="149" />
-          <folding>
-            <element signature="e#24#48#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="121" selection-start-line="3" selection-start-column="121" selection-end-line="3" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/static/img/continuous-delivery.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/templates/deploy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4473684">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

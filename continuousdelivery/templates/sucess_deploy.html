@@ -3,7 +3,10 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
             <h2>Deploy realizado com sucesso!</h2>
-            <p></p>
+             <div class="form-group">
+              <label for="log">Log:</label>
+              <textarea readonly wrap='off' class="form-control" rows="20" id="log">{{ log }}</textarea>
+            </div>
             <p><a href="{% url 'deploy' %}" class="btn btn-primary btn-large">OK</a>
             </p>
         </header>

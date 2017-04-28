@@ -1,7 +1,8 @@
-2017-04-27 17:32:41,432 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
-2017-04-27 17:32:41,433 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
-2017-04-27 17:32:41,433 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmp597jr49o
-2017-04-27 17:33:02,747 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
-2017-04-27 17:34:24,967 - continuousdelivery.forms - INFO - Compiled project
-2017-04-27 17:34:25,017 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
-2017-04-27 17:34:25,354 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
+2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
+2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
+2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmppoj0zwhh
+2017-04-28 11:55:31,080 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
+2017-04-28 12:00:33,910 - continuousdelivery.forms - INFO - Compiled project
+2017-04-28 12:00:34,063 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
+2017-04-28 12:00:34,387 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
+2017-04-28 12:00:37,666 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br

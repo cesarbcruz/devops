@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
 from .forms import DeployForm
+import re
 
 class Deploy(FormView):
     template_name = "deploy.html"
@@ -24,7 +24,12 @@ class ResultDeploy(TemplateView):
             if not line.strip():
                 continue
             else:
-                lines += line
+                formated_line = line.replace("INFO", "<span style='color: green'>INFO</span> ")
+                formated_line = formated_line.replace("ERROR", "<span style='color: red'>ERROR</span> ")
+                date_time_log = re.search('[\d]+\-[\d]+\-[\d]+\ [\d]+\:[\d]+\:[\d]+\,[\d]+', formated_line)
+                if date_time_log:
+                    formated_line = formated_line.replace(date_time_log.group(0), "<span style='color: blue'>{}</span> ".format(date_time_log.group(0)))
+                lines += formated_line
         infile.close()
         context['log'] = lines
         return context

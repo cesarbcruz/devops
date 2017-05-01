@@ -1,12 +1,12 @@
-2017-05-01 18:45:58,151 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
-2017-05-01 18:45:58,151 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
-2017-05-01 18:45:58,156 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmp5tuc2g9r
-2017-05-01 18:46:43,157 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
-2017-05-01 18:48:01,024 - continuousdelivery.forms - INFO - Compiled project
-2017-05-01 18:48:02,176 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
-2017-05-01 18:48:02,961 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
-2017-05-01 18:48:07,522 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
-2017-05-01 18:48:09,698 - continuousdelivery.forms - INFO - rm -rf /usr/local/nova_versao/4_42_3/
+2017-05-01 20:46:14,604 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
+2017-05-01 20:46:14,605 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
+2017-05-01 20:46:14,606 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmpreannr2_
+2017-05-01 20:46:59,685 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
+2017-05-01 20:48:17,309 - continuousdelivery.forms - INFO - Compiled project
+2017-05-01 20:48:17,978 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
+2017-05-01 20:48:18,653 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
+2017-05-01 20:48:22,449 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
+2017-05-01 20:48:24,315 - continuousdelivery.forms - INFO - rm -rf /usr/local/nova_versao/4_42_3/
 
-2017-05-01 18:48:09,817 - continuousdelivery.forms - INFO - mkdir /usr/local/nova_versao/4_42_3/
+2017-05-01 20:48:24,437 - continuousdelivery.forms - INFO - mkdir /usr/local/nova_versao/4_42_3/
 

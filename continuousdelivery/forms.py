@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
-import subprocess, tempfile, os, re, errno, shutil, logging, smtplib
+import subprocess, tempfile, os, re, errno, shutil, logging, smtplib, time
 from email.mime.text import MIMEText
 import pexpect
 from pexpect import pxssh
@@ -13,11 +13,20 @@ destinatario = 'cesar@logicsp.com.br'
 # 'michael.serafim@logicsp.com.br, roberto@logicsp.com.br, cesar@logicsp.com.br, ' \
 #'tadeu.santos@logicsp.com.br, daniel@logicsp.com.br'
 
+partial = 0
+complete = 1
+
 class DeployForm(forms.Form):
-    url_project_repository = forms.CharField(label='URL Projeto Repositório')
-    ip_destination = forms.CharField(label='IP Destino')
+    url_project_repository = forms.CharField(label='URL Project Repository')
+    ip_destination = forms.CharField(label='IP Destination')
+    TYPE_DEPLOY = (
+        (partial, 'Only send the binaries to the server'),
+        (complete, 'Send binaries and deploy in jboss'),
+    )
+    type_deploy = forms.ChoiceField(label='Type deploy', widget=forms.RadioSelect, choices=TYPE_DEPLOY, initial=partial)
 
     def execute(self):
+        _start_time = time.time()
         user_svn = "cesar"
         password_svn = "Herminia2"
         jboss_home = "/opt/Packages/jboss-eap-6.1/"
@@ -34,7 +43,11 @@ class DeployForm(forms.Form):
             folder_destination = "/usr/local/nova_versao/{}/".format(version)
             send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger)
             binary_files = get_binary_files(dirpath)
-            send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, "root", "pa33Lx$k", logger, jboss_home)
+            send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, "root", "pa33Lx$k", logger, jboss_home, (self.cleaned_data['type_deploy']))
+            t_sec = round(time.time() - _start_time)
+            (t_min, t_sec) = divmod(t_sec, 60)
+            (t_hour, t_min) = divmod(t_min, 60)
+            logger.info('Time processing: {}hour:{}min:{}sec'.format(t_hour, t_min, t_sec))
         except Exception as ex:
             logger.error(ex, exc_info=True)
         finally:
@@ -112,7 +125,7 @@ def get_binary_files(dirpath):
            "{0}/ERP-web/target/ERP-web.war " \
         .format(dirpath)
 
-def send_binaries(hostname, binary_files, folder_destination, username, password, logger, jboss_home):
+def send_binaries(hostname, binary_files, folder_destination, username, password, logger, jboss_home, type_deploy):
     s = pxssh.pxssh()
     s.login(hostname, username, password)
 
@@ -130,12 +143,13 @@ def send_binaries(hostname, binary_files, folder_destination, username, password
     elif i == 1:
         logger.error("Got the key or connection timeout")
 
-    execute_command(s, "cp {0}{1} /usr/local/prj_ERP_Producao/.".format(folder_destination, "ERP-jar.jar"), logger)
-    execute_command(s, "cp {0}{1} /usr/local/prj_ERP_Producao/lib/.".format(folder_destination, "ERP-ejb.jar"), logger)
-    execute_command(s, "service jboss stop", logger)
-    execute_command(s, "cp {0}{1} {2}standalone/deployments/".format(folder_destination, "ERP-ear-1.0-SNAPSHOT.ear", jboss_home), logger)
-    execute_command(s, "cp {0}{1} {2}standalone/deployments/".format(folder_destination, "ERP-web.war", jboss_home), logger)
-    execute_command(s, "service jboss start", logger)
+    if type_deploy == str(complete):
+        execute_command(s, "cp {0}{1} /usr/local/prj_ERP_Producao/.".format(folder_destination, "ERP-jar.jar"), logger)
+        execute_command(s, "cp {0}{1} /usr/local/prj_ERP_Producao/lib/.".format(folder_destination, "ERP-ejb.jar"), logger)
+        execute_command(s, "service jboss stop", logger)
+        execute_command(s, "cp {0}{1} {2}standalone/deployments/".format(folder_destination, "ERP-ear-1.0-SNAPSHOT.ear", jboss_home), logger)
+        execute_command(s, "cp {0}{1} {2}standalone/deployments/".format(folder_destination, "ERP-web.war", jboss_home), logger)
+        execute_command(s, "service jboss start", logger)
 
     s.logout()
 

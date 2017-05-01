@@ -18,8 +18,13 @@ class ResultDeploy(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ResultDeploy, self).get_context_data(**kwargs)
-        log_file = open("deploy.log", "r")
-        log = log_file.read();
-        log_file.close()
-        context['log'] = log
+        infile = open("deploy.log", "r")
+        lines = ""
+        for line in infile:
+            if not line.strip():
+                continue
+            else:
+                lines += line
+        infile.close()
+        context['log'] = lines
         return context

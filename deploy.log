@@ -1,8 +1,17 @@
-2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
-2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
-2017-04-28 11:54:14,053 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmppoj0zwhh
-2017-04-28 11:55:31,080 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
-2017-04-28 12:00:33,910 - continuousdelivery.forms - INFO - Compiled project
-2017-04-28 12:00:34,063 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
-2017-04-28 12:00:34,387 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
-2017-04-28 12:00:37,666 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
+2017-04-30 22:50:30,769 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
+2017-04-30 22:50:30,769 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
+2017-04-30 22:50:30,770 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmp5tzzevdq
+2017-04-30 22:51:18,962 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
+2017-04-30 22:53:16,153 - continuousdelivery.forms - INFO - Compiled project
+2017-04-30 22:53:16,747 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
+2017-04-30 22:53:17,421 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
+2017-04-30 22:53:21,590 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
+2017-04-30 22:53:23,501 - continuousdelivery.forms - INFO - b'rm -rf /usr/local/nova_versao/4_42_3/\r\n'
+2017-04-30 22:53:23,657 - continuousdelivery.forms - INFO - b'mkdir /usr/local/nova_versao/4_42_3/\r\n'
+2017-04-30 22:56:25,118 - continuousdelivery.forms - INFO - Binaries sent to 172.16.50.119
+2017-04-30 22:56:25,265 - continuousdelivery.forms - INFO - b'cp /usr/local/nova_versao/4_42_3/ERP-jar.jar /usr/local/prj_ERP_Produ \rcao/.\r\n'
+2017-04-30 22:56:25,369 - continuousdelivery.forms - INFO - b'cp /usr/local/nova_versao/4_42_3/ERP-ejb.jar /usr/local/prj_ERP_Produ \rcao/lib/.\r\n'
+2017-04-30 22:56:27,529 - continuousdelivery.forms - INFO - b'service jboss stop\r\nParando JBoss EAP6:  \x1b[0;32m [ SUCESSO ]  \x1b[0m \r\nJBoss EAP6 nao esta rodando\r\n\r\n'
+2017-04-30 22:56:27,688 - continuousdelivery.forms - INFO - b'cp /usr/local/nova_versao/4_42_3/ERP-ear-1.0-SNAPSHOT.ear /opt/Packag \res/jboss-eap-6.1/standalone/deployments/\r\n'
+2017-04-30 22:56:28,000 - continuousdelivery.forms - INFO - b'cp /usr/local/nova_versao/4_42_3/ERP-web.war /opt/Packages/jboss-eap- \r6.1/standalone/deployments/\r\n'
+2017-04-30 22:56:56,533 - continuousdelivery.forms - INFO - b'service jboss start\r\nIniciando JBoss EAP6: /opt/Packages/jboss-eap-6.1/bin/standalone.sh\r\n-Djboss.server.base.dir=/opt/Packages/jboss-eap-6.1/standalone -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0 -Djboss.server.default.config=standalone.xml\r\n. . . . . . . . . . . . . . . . . . . . . . . . . . .  \x1b[0;32m [ SUCESSO ]  \x1b[0m \r\n\r\n'

@@ -142,4 +142,4 @@ def send_binaries(hostname, binary_files, folder_destination, username, password
 def execute_command(s, cmd, logger):
     s.sendline(cmd)
     s.prompt()
-    logger.info(s.before)
+    logger.info(str(s.before, 'utf-8'))

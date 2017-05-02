@@ -1,12 +1,43 @@
-2017-05-01 20:46:14,604 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
-2017-05-01 20:46:14,605 - continuousdelivery.forms - INFO - IP destination: 172.16.50.119
-2017-05-01 20:46:14,606 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmpreannr2_
-2017-05-01 20:46:59,685 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
-2017-05-01 20:48:17,309 - continuousdelivery.forms - INFO - Compiled project
-2017-05-01 20:48:17,978 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
-2017-05-01 20:48:18,653 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
-2017-05-01 20:48:22,449 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
-2017-05-01 20:48:24,315 - continuousdelivery.forms - INFO - rm -rf /usr/local/nova_versao/4_42_3/
+2017-05-02 10:01:13,503 - continuousdelivery.forms - INFO - URL project repository: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/
+2017-05-02 10:01:13,503 - continuousdelivery.forms - INFO - IP destination: 172.16.50.124
+2017-05-02 10:01:13,503 - continuousdelivery.forms - INFO - Create dir temp: /tmp/tmpzh37udhz
+2017-05-02 10:01:37,359 - continuousdelivery.forms - INFO - Checkout project: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ 
+2017-05-02 10:02:55,977 - continuousdelivery.forms - INFO - Compiled project
+2017-05-02 10:02:56,019 - continuousdelivery.forms - INFO - Removing old tag: TAG_VER_4_42_3
+2017-05-02 10:02:56,381 - continuousdelivery.forms - INFO - Create TAG: http://172.16.50.2/svn/repositorioCovabra/ERP/trunk/FONTE/ERP/ERP/ -> http://172.16.50.2/svn/repositorioCovabra/ERP/tags/TAG_VER_4_42_3
+2017-05-02 10:02:59,125 - continuousdelivery.forms - INFO - Send email notification : cesar@logicsp.com.br
+2017-05-02 10:03:00,436 - continuousdelivery.forms - INFO - rm -rf /usr/local/nova_versao/4_42_3/
 
-2017-05-01 20:48:24,437 - continuousdelivery.forms - INFO - mkdir /usr/local/nova_versao/4_42_3/
+2017-05-02 10:03:00,500 - continuousdelivery.forms - INFO - mkdir /usr/local/nova_versao/4_42_3/
 
+2017-05-02 10:03:04,388 - continuousdelivery.forms - INFO - Binaries sent to 172.16.50.124
+2017-05-02 10:03:04,476 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-jar.jar /usr/local/prj_ERP_Pr<va_versao/4_42_3/ERP-jar.jar /usr/local/prj_ERP_Pro                         ducao/.
+
+2017-05-02 10:03:04,564 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-ejb.jar /usr/local/prj_ERP_Pr<va_versao/4_42_3/ERP-ejb.jar /usr/local/prj_ERP_Pro                         ducao/lib/.
+
+2017-05-02 10:03:05,672 - continuousdelivery.forms - INFO - service jboss stop
+Parando JBoss EAP6:  [0;32m [ SUCESSO ]  [0m 
+JBoss EAP6 nao esta rodando
+
+
+2017-05-02 10:03:05,788 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-ear-1.0-SNAPSHOT.ear /usr/loc<va_versao/4_42_3/ERP-ear-1.0-SNAPSHOT.ear /usr/loca                         l/jboss-eap-6.1/standalon<.0-SNAPSHOT.ear /usr/local/jboss-eap-6.1/standalone                         /deployments/
+
+2017-05-02 10:03:05,864 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-web.war /usr/local/jboss-eap-<va_versao/4_42_3/ERP-web.war /usr/local/jboss-eap-6                         .1/standalone/deployments<ar /usr/local/jboss-eap-6.1/standalone/deployments/                         
+
+2017-05-02 10:03:35,920 - continuousdelivery.forms - INFO - service jboss start
+Iniciando JBoss EAP6: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+2017-05-02 10:03:37,308 - continuousdelivery.forms - INFO - Time processing: 0hour:2min:24sec
+forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-ejb.jar /usr/local/prj_ERP_Pr<va_versao/4_42_3/ERP-ejb.jar /usr/local/prj_ERP_Pro                         ducao/lib/.
+
+2017-05-02 10:03:05,672 - continuousdelivery.forms - INFO - service jboss stop
+Parando JBoss EAP6:  [0;32m [ SUCESSO ]  [0m 
+JBoss EAP6 nao esta rodando
+
+
+2017-05-02 10:03:05,788 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-ear-1.0-SNAPSHOT.ear /usr/loc<va_versao/4_42_3/ERP-ear-1.0-SNAPSHOT.ear /usr/loca                         l/jboss-eap-6.1/standalon<.0-SNAPSHOT.ear /usr/local/jboss-eap-6.1/standalone                         /deployments/
+
+2017-05-02 10:03:05,864 - continuousdelivery.forms - INFO - cp /usr/local/nova_versao/4_42_3/ERP-web.war /usr/local/jboss-eap-<va_versao/4_42_3/ERP-web.war /usr/local/jboss-eap-6                         .1/standalone/deployments<ar /usr/local/jboss-eap-6.1/standalone/deployments/                         
+
+2017-05-02 10:03:35,920 - continuousdelivery.forms - INFO - service jboss start
+Iniciando JBoss EAP6: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+2017-05-02 10:03:37,308 - continuousdelivery.forms - INFO - Time processing: 0hour:2min:24sec

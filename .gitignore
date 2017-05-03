@@ -1,3 +1,5 @@
+db.sqlite3
+conf.txt
 deploy.log
 .ide
 __pycache__/

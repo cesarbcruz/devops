@@ -6,11 +6,11 @@ import pexpect
 from pexpect import pxssh
 
 #param global
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-sender = 'logicnotice@gmail.com'
-pwd_email = 'pa33Lx$k'
-destinatario = 'cesar@logicsp.com.br'
+smtp_server = 'smtp.gmail.com'
+smtp_port = 587
+email_sender = 'logicnotice@gmail.com'
+password_email_sender = 'pa33Lx$k'
+email_destination = 'cesar@logicsp.com.br'
 # 'michael.serafim@logicsp.com.br, roberto@logicsp.com.br, cesar@logicsp.com.br, ' \
 #'tadeu.santos@logicsp.com.br, daniel@logicsp.com.br'
 
@@ -112,18 +112,18 @@ def send_email_notificaton(version, ip_destination, tag, folder_destination, log
         'Não esqueça de atualizar o CVS para uma futura equalização de versão!'.format(
             version, tag, user, ip_destination, folder_destination))
     msg['Subject'] = 'Versão {} gerada'.format(version)
-    msg['To'] = destinatario
-    msg['From'] = sender
+    msg['To'] = email_destination
+    msg['From'] = email_sender
 
-    session = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+    session = smtplib.SMTP(smtp_server, smtp_port)
     session.ehlo()
     session.starttls()
     session.ehlo()
-    session.login(sender, pwd_email)
-    session.sendmail(sender, destinatario.split(', '), msg.as_string())
+    session.login(email_sender, password_email_sender)
+    session.sendmail(email_sender, email_destination.split(', '), msg.as_string())
     session.quit()
 
-    logger.info('Send email notification : {}'.format(destinatario))
+    logger.info('Send email notification : {}'.format(email_destination))
 
 def get_credentials_svn(user_svn, password_svn):
     return " --non-interactive --trust-server-cert --username {0} --password {1}".format(user_svn, password_svn)

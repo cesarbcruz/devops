@@ -10,3 +10,5 @@
 
 2017-05-01 20:48:24,437 - continuousdelivery.forms - INFO - mkdir /usr/local/nova_versao/4_42_3/
 
+2017-05-01 20:51:28,622 - continuousdelivery.forms - INFO - Binaries sent to 172.16.50.119
+2017-05-01 20:51:28,997 - continuousdelivery.forms - INFO - Time processing: 0hour:5min:14sec

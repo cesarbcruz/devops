@@ -1,5 +1,5 @@
 deploy.log
-# Byte-compiled / optimized / DLL files
+.ide
 __pycache__/
 *.py[cod]
 *$py.class

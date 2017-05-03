@@ -26,6 +26,8 @@ url_tags = 'http://172.16.50.2/svn/repositorioCovabra/ERP/tags/'
 jboss_home = "/usr/local/jboss-eap-6.1/"
 erp_home = "/usr/local/prj_ERP_Producao/"
 folder_destination_base="/usr/local/nova_versao/{}/"
+user_destination = "root"
+password_destination = "pa33Lx$k"
 
 partial = 0
 complete = 1
@@ -54,7 +56,7 @@ class DeployForm(forms.Form):
             folder_destination = folder_destination_base.format(version)
             send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger)
             binary_files = get_binary_files(dirpath)
-            send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, "root", "pa33Lx$k", logger, jboss_home, (self.cleaned_data['type_deploy']))
+            send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, user_destination, password_destination, logger, jboss_home, (self.cleaned_data['type_deploy']))
             t_sec = round(time.time() - start_time)
             (t_min, t_sec) = divmod(t_sec, 60)
             (t_hour, t_min) = divmod(t_min, 60)

@@ -12,7 +12,6 @@ from .forms import UserAdminCreationForm
 
 
 class IndexView(LoginRequiredMixin, TemplateView):
-
     template_name = 'accounts/index.html'
 
 
@@ -27,7 +26,7 @@ class RegisterView(CreateView):
 class UpdateUserView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'accounts/update_user.html'
-    fields = ['name', 'birth_date', 'email', 'phone', 'cellphone', 'img_url']
+    fields = ['name', 'email', 'repository_user', 'repository_password']
     success_url = reverse_lazy('accounts:index')
 
     def get_object(self):
@@ -35,12 +34,11 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
 
     def get_form(self, form_class=None):
         form = super(UpdateUserView, self).get_form(form_class)
-        form.fields['birth_date'].widget = forms.widgets.DateInput(format=('%Y-%m-%d'), attrs={'type': 'date'})
+        form.fields['repository_password'].widget = forms.PasswordInput(render_value=True)
         return form
 
 
 class UpdatePasswordView(LoginRequiredMixin, FormView):
-
     template_name = 'accounts/update_password.html'
     success_url = reverse_lazy('accounts:index')
     form_class = PasswordChangeForm
@@ -55,11 +53,7 @@ class UpdatePasswordView(LoginRequiredMixin, FormView):
         return super(UpdatePasswordView, self).form_valid(form)
 
 
-class QrcodeSyncView(LoginRequiredMixin, TemplateView):
-    template_name = 'accounts/qrcode_sync.html'
-
 index = IndexView.as_view()
 register = RegisterView.as_view()
 update_user = UpdateUserView.as_view()
 update_password = UpdatePasswordView.as_view()
-qrcode_sync = QrcodeSyncView.as_view()

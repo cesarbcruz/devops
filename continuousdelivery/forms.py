@@ -4,13 +4,8 @@ import subprocess, tempfile, os, re, errno, shutil, logging, smtplib, time
 from email.mime.text import MIMEText
 import pexpect
 from pexpect import pxssh
-
-#param global
 from continuousdelivery.models import Global_Parameters
 
-#param user
-user_svn = "cesar"
-password_svn = "Herminia2"
 email_destination = 'cesar@logicsp.com.br'
 # 'michael.serafim@logicsp.com.br, roberto@logicsp.com.br, cesar@logicsp.com.br, ' \
 #'tadeu.santos@logicsp.com.br, daniel@logicsp.com.br'
@@ -38,21 +33,22 @@ class DeployForm(forms.Form):
     )
     type_deploy = forms.ChoiceField(label='Type deploy', widget=forms.RadioSelect, choices=TYPE_DEPLOY, initial=partial)
 
-    def execute(self):
+    def execute(self, user):
         start_time = time.time()
         logger = create_log_deploy()
         logger.info('URL project repository: {}'.format(self.cleaned_data['url_project_repository']))
         logger.info('IP destination: {}'.format(self.cleaned_data['ip_destination']))
         try:
             dirpath = tempfile.mkdtemp()
+            validate_user(user)
             global_parameters = get_send_email_notificaton()
             logger.info('Create dir temp: {}'.format(dirpath))
             checkout_project(self.cleaned_data['url_project_repository'], dirpath, logger)
             compile_project(dirpath, logger)
             version = get_version_project(dirpath)
-            tag = create_tag_svn("TAG_VER_{}".format(version), self.cleaned_data['url_project_repository'], logger, user_svn, password_svn)
+            tag = create_tag_svn("TAG_VER_{}".format(version), self.cleaned_data['url_project_repository'], logger, user.repository_user, user.repository_password)
             folder_destination = folder_destination_base.format(version)
-            send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger, global_parameters)
+            send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger, global_parameters, user)
             binary_files = get_binary_files(dirpath)
             send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, user_destination, password_destination, logger, jboss_home, (self.cleaned_data['type_deploy']))
             t_sec = round(time.time() - start_time)
@@ -101,14 +97,14 @@ def create_log_deploy():
     logger.addHandler(handler)
     return logger
 
-def send_email_notificaton(version, ip_destination, tag, folder_destination, logger, global_parameters):
-    user = "TESTE DEPLOY"
+def send_email_notificaton(version, ip_destination, tag, folder_destination, logger, global_parameters, user):
+
     msg = MIMEText(
         'Nova versao: {0} e TAG: {1} geradas.\n'
         'Usuario: {2}.\n'
         'Upload realizado no servidor {3} em {4}\n'
         'Não esqueça de atualizar o CVS para uma futura equalização de versão!'.format(
-            version, tag, user, ip_destination, folder_destination))
+            version, tag, user.name, ip_destination, folder_destination))
     msg['Subject'] = 'Versão {} gerada'.format(version)
     msg['To'] = email_destination
     msg['From'] = global_parameters.email_sender
@@ -172,6 +168,12 @@ def get_send_email_notificaton():
         return global_parameters[0]
     else:
         raise "Unconfigured global parameters"
+
+def validate_user(user):
+    if not user.repository_user:
+        raise "Unconfigured repository user"
+    if not user.repository_password:
+        raise "Unconfigured repository password"
 
 class Global_ParametersAdminForm(forms.ModelForm):
 

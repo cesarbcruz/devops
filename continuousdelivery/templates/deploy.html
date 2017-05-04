@@ -1,8 +1,12 @@
-{% extends "base.html" %}
+{% extends "accounts/index.html" %}
+
 {% load widget_tweaks %}
-{% block container %}
-        <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
+
+{% block title %}Update user{% endblock %}
+
+{% block accounts_container %}
+    <h2>Deploy</h2>
+    <header class="jumbotron hero-spacer">
             <form onsubmit="return _validateForm()" class="form-horizontal" method="post">
 			        {% csrf_token %}
 			        <fieldset>
@@ -28,19 +32,6 @@
 					function _validateForm(){
 					 	$.blockUI({ message: '<h4>Wait, processing deploy...</h4>' });
 					}
-			</script>	
-				
-
+			</script>
         </header>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p></p>
-                </div>
-            </div>
-        </footer>
 {% endblock %}

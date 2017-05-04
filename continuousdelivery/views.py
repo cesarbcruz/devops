@@ -2,17 +2,21 @@ from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
 from .forms import DeployForm
 import re
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class Deploy(FormView):
+class Deploy(LoginRequiredMixin, FormView):
     template_name = "deploy.html"
     form_class = DeployForm
     success_url = "resultdeploy"
 
+    def dispatch(self, *args, **kwargs):
+           return super(Deploy, self).dispatch(*args, **kwargs)
+
     def form_valid(self, form):
-        form.execute()
+        form.execute(self.request.user)
         return super(Deploy, self).form_valid(form)
 
-class ResultDeploy(TemplateView):
+class ResultDeploy(LoginRequiredMixin, TemplateView):
 
     template_name = "result_deploy.html"
 

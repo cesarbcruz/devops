@@ -1,23 +1,29 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block title %}Minha Conta{% endblock %}
-
 {% block container %}
 <ol class="breadcrumb">
-  <li><a href="{% url 'accounts:index' %}">Início</a></li>
-  <li class="active">Minha Conta</li>
+  <li><a href="{% url 'accounts:index' %}">Home</a></li>
+  <li class="active">Options</li>
 </ol>
 <div class="row">
     <div class="col-md-4">
         <div class="list-group">
-            <a href="{% url 'accounts:index' %}" class="list-group-item active">Minha Conta</a>
-            <a href="{% url 'accounts:update_user' %}" class="list-group-item">Alterar Dados</a>
-            <a href="{% url 'accounts:update_password' %}" class="list-group-item">Alterar Senha</a>
-            <a href="{% url 'emergency' %}" class="list-group-item">Emergência</a>
-            <a href="{% url 'api:sendmessage' %}" class="list-group-item">Enviar Mensagem</a>
-            <a href="{% url 'monitoring' %}" class="list-group-item">Monitoramento</a>
-            <a href="{% url 'accounts:qrcode-sync' %}" class="list-group-item">Sincronizar App Android</a>
+            <a href="{% url 'accounts:index' %}" class="list-group-item active">Options</a>
+            <a href="{% url 'accounts:update_user' %}" class="list-group-item">Update user</a>
+            <a href="{% url 'accounts:update_password' %}" class="list-group-item">Update password</a>
+            <a href="{% url 'deploy' %}" class="list-group-item">Deploy</a>
+            <a href="{% url 'logout' %}" class="list-group-item">Logout</a>
         </div>
+
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="{% static 'img/continuous-delivery.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="col-md-8">
         {% block accounts_container %}

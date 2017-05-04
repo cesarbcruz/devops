@@ -6,17 +6,14 @@ import pexpect
 from pexpect import pxssh
 
 #param global
-smtp_server = 'smtp.gmail.com'
-smtp_port = 587
-email_sender = 'logicnotice@gmail.com'
-password_email_sender = 'pa33Lx$k'
-email_destination = 'cesar@logicsp.com.br'
-# 'michael.serafim@logicsp.com.br, roberto@logicsp.com.br, cesar@logicsp.com.br, ' \
-#'tadeu.santos@logicsp.com.br, daniel@logicsp.com.br'
+from continuousdelivery.models import Global_Parameters
 
 #param user
 user_svn = "cesar"
 password_svn = "Herminia2"
+email_destination = 'cesar@logicsp.com.br'
+# 'michael.serafim@logicsp.com.br, roberto@logicsp.com.br, cesar@logicsp.com.br, ' \
+#'tadeu.santos@logicsp.com.br, daniel@logicsp.com.br'
 
 #param project repository
 path_parametros = 'ERP-jar/src/main/java/logic/covabra/framework/parametros/ParametrosGlobaisERP.java'
@@ -48,13 +45,14 @@ class DeployForm(forms.Form):
         logger.info('IP destination: {}'.format(self.cleaned_data['ip_destination']))
         try:
             dirpath = tempfile.mkdtemp()
+            global_parameters = get_send_email_notificaton()
             logger.info('Create dir temp: {}'.format(dirpath))
             checkout_project(self.cleaned_data['url_project_repository'], dirpath, logger)
             compile_project(dirpath, logger)
             version = get_version_project(dirpath)
             tag = create_tag_svn("TAG_VER_{}".format(version), self.cleaned_data['url_project_repository'], logger, user_svn, password_svn)
             folder_destination = folder_destination_base.format(version)
-            send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger)
+            send_email_notificaton(version, self.cleaned_data['ip_destination'], tag, folder_destination, logger, global_parameters)
             binary_files = get_binary_files(dirpath)
             send_binaries(self.cleaned_data['ip_destination'], binary_files, folder_destination, user_destination, password_destination, logger, jboss_home, (self.cleaned_data['type_deploy']))
             t_sec = round(time.time() - start_time)
@@ -65,7 +63,7 @@ class DeployForm(forms.Form):
             logger.error(ex, exc_info=True)
         finally:
             try:
-                shutil.rmtree(dirpath)
+                shutil.rmtree(dirpath, ignore_errors=False)
             except OSError as exc:
                 if exc.errno != errno.ENOENT:
                     raise
@@ -103,7 +101,7 @@ def create_log_deploy():
     logger.addHandler(handler)
     return logger
 
-def send_email_notificaton(version, ip_destination, tag, folder_destination, logger):
+def send_email_notificaton(version, ip_destination, tag, folder_destination, logger, global_parameters):
     user = "TESTE DEPLOY"
     msg = MIMEText(
         'Nova versao: {0} e TAG: {1} geradas.\n'
@@ -113,14 +111,14 @@ def send_email_notificaton(version, ip_destination, tag, folder_destination, log
             version, tag, user, ip_destination, folder_destination))
     msg['Subject'] = 'Versão {} gerada'.format(version)
     msg['To'] = email_destination
-    msg['From'] = email_sender
+    msg['From'] = global_parameters.email_sender
 
-    session = smtplib.SMTP(smtp_server, smtp_port)
+    session = smtplib.SMTP(global_parameters.smtp_server, global_parameters.smtp_port)
     session.ehlo()
     session.starttls()
     session.ehlo()
-    session.login(email_sender, password_email_sender)
-    session.sendmail(email_sender, email_destination.split(', '), msg.as_string())
+    session.login(global_parameters.email_sender, global_parameters.password_email_sender)
+    session.sendmail(global_parameters.email_sender, email_destination.split(', '), msg.as_string())
     session.quit()
 
     logger.info('Send email notification : {}'.format(email_destination))
@@ -167,3 +165,19 @@ def execute_command(s, cmd, logger):
     s.sendline(cmd)
     s.prompt()
     logger.info(str(s.before, 'utf-8'))
+
+def get_send_email_notificaton():
+    global_parameters = Global_Parameters.objects.all()
+    if global_parameters:
+        return global_parameters[0]
+    else:
+        raise "Unconfigured global parameters"
+
+class Global_ParametersAdminForm(forms.ModelForm):
+
+    class Meta:
+        model = Global_Parameters
+        fields = ['smtp_server', 'smtp_port', 'email_sender', 'password_email_sender']
+        widgets = {
+            'password_email_sender': forms.PasswordInput(render_value=True),
+        }

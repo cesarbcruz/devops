@@ -9,3 +9,19 @@ class Global_Parameters(models.Model):
     class Meta:
         verbose_name = 'Global Parameter'
         verbose_name_plural = 'Global Parameters'
+
+class ServerJboss(models.Model):
+    name = models.CharField(max_length=200)
+    ip = models.CharField(max_length=200)
+    jboss_home = models.CharField(max_length=500)
+    erp_home = models.CharField(max_length=500)
+    folder_version = models.CharField(max_length=200)
+    user_ssh = models.CharField(max_length=200)
+    password_ssh = models.CharField(max_length=200)
+
+    class Meta:
+        verbose_name = 'Server Jboss'
+        verbose_name_plural = 'Servers Jboss'
+
+    def __str__(self):
+        return "{0} {1}".format(self.ip, self.name)

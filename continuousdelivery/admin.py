@@ -9,7 +9,7 @@ class Global_ParametersAdmin(ModelAdmin):
     form = Global_ParametersAdminForm
     fieldsets = (
         (None, {
-            'fields': ('smtp_server', 'smtp_port', 'email_sender', 'password_email_sender')
+            'fields': ('smtp_server', 'smtp_port', 'email_sender', 'password_email_sender', 'folder_archive_binaries')
         }),
     )
     list_display = ['smtp_server', 'smtp_port', 'email_sender']

@@ -5,6 +5,7 @@ class Global_Parameters(models.Model):
     smtp_port = models.CharField(max_length=5)
     email_sender = models.CharField(max_length=200)
     password_email_sender = models.CharField(max_length=200)
+    folder_archive_binaries = models.CharField(max_length=200)
 
     class Meta:
         verbose_name = 'Global Parameter'

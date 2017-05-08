@@ -1,5 +1,6 @@
 import os
 import zipfile
+from io import StringIO
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
@@ -34,21 +35,19 @@ class ArchiveBinaries(LoginRequiredMixin, FormView):
            return super(ArchiveBinaries, self).dispatch(*args, **kwargs)
 
     def form_valid(self, form):
-        zip_io = make_zipfile("binaries.zip", form.select_version(self.request))
-        response = HttpResponse(zip_io, content_type='application/x-zip-compressed')
-        response['Content-Disposition'] = 'attachment; filename=%s' % 'binaries' + ".zip"
-        #response['Content-Length'] = zip_io.()
+        path_version = form.select_version(self.request)
+        version = path_version.split("/")
+        name_zip = '{}.zip'.format(version[len(version)-1])
+        path_zip = "/tmp/{}".format(name_zip)
+        zipf = zipfile.ZipFile(path_zip, 'w', zipfile.ZIP_DEFLATED)
+        zipdir(path_version, zipf)
+        zipf.close()
+        response = HttpResponse(open(path_zip, 'rb').read(), content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename="%s"' % name_zip
         return response
 
-def make_zipfile(output_filename, source_dir):
-    relroot = os.path.abspath(os.path.join(source_dir, os.pardir))
-    with zipfile.ZipFile(output_filename, "w", zipfile.ZIP_DEFLATED) as zip:
-        for root, dirs, files in os.walk(source_dir):
-            # add directory (needed for empty dirs)
-            zip.write(root, os.path.relpath(root, relroot))
-            for file in files:
-                filename = os.path.join(root, file)
-                if os.path.isfile(filename): # regular files only
-                    arcname = os.path.join(os.path.relpath(root, relroot), file)
-                    zip.write(filename, arcname)
-    return zip
+def zipdir(path, ziph):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            ziph.write(os.path.join(root, file))
+

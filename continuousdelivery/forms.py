@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
 import tempfile, errno, shutil, time, os
-from django.contrib.admin.widgets import FilteredSelectMultiple
 from continuousdelivery import DeployRun
 from continuousdelivery.models import Global_Parameters, ServerJboss
 
@@ -12,7 +11,7 @@ class DeployForm(forms.Form):
         (DeployRun.partial, 'Only send the binaries to the server'),
         (DeployRun.complete, 'Send binaries and deploy in jboss'),
     )
-    type_deploy = forms.ChoiceField(label='Type deploy', widget=forms.RadioSelect, choices=TYPE_DEPLOY, initial=DeployRun.partial)
+    type_deploy = forms.ChoiceField(label='Type deploy', widget=forms.Select, choices=TYPE_DEPLOY, initial=DeployRun.partial)
 
     def execute(self, request):
 
@@ -39,6 +38,7 @@ class DeployForm(forms.Form):
             (t_min, t_sec) = divmod(t_sec, 60)
             (t_hour, t_min) = divmod(t_min, 60)
             logger.info('Time processing: {}hour:{}min:{}sec'.format(t_hour, t_min, t_sec))
+            logger.info("Do not forget to update the cvs")
 
         except Exception as ex:
             logger.error(ex, exc_info=True)
@@ -67,12 +67,17 @@ class ServerJbossAdminForm(forms.ModelForm):
         }
 
 class ArchiveBinariesForm(forms.Form):
-    global_parameters = DeployRun.get_global_parameters()
-    list_version = []
-    for file in os.listdir(global_parameters.folder_archive_binaries):
-        list_version.append(["{}{}".format(global_parameters.folder_archive_binaries, file), file])
+    versions = forms.ChoiceField()
 
-    versions = forms.ChoiceField(widget=forms.Select(), choices=list_version)
+    def __init__(self, *args, **kwargs):
+        super(ArchiveBinariesForm, self).__init__(*args, **kwargs)
+        global_parameters = DeployRun.get_global_parameters()
+        list_version = []
+        list_version.append(["", "--------"])
+        if os.path.exists(global_parameters.folder_archive_binaries):
+            for file in os.listdir(global_parameters.folder_archive_binaries):
+                list_version.append(["{}{}".format(global_parameters.folder_archive_binaries, file), file])
+        self.fields['versions'] = forms.ChoiceField(widget=forms.Select(), choices=list_version)
 
     def select_version(self, request):
         return self.cleaned_data['versions']

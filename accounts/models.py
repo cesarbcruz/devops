@@ -26,6 +26,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField('Entry date', auto_now_add=True)
     repository_user = models.CharField('Repository user', max_length=100, blank=True)
     repository_password = models.CharField('Repository password', max_length=100, blank=True)
+    vpn_user = models.CharField('VPN user', max_length=100, blank=True)
+    vpn_password = models.CharField('VPN password', max_length=100, blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']

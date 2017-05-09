@@ -26,7 +26,7 @@ class RegisterView(CreateView):
 class UpdateUserView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'accounts/update_user.html'
-    fields = ['name', 'email', 'repository_user', 'repository_password']
+    fields = ['name', 'email', 'repository_user', 'repository_password', 'vpn_user', 'vpn_password']
     success_url = reverse_lazy('accounts:index')
 
     def get_object(self):
@@ -35,6 +35,7 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
     def get_form(self, form_class=None):
         form = super(UpdateUserView, self).get_form(form_class)
         form.fields['repository_password'].widget = forms.PasswordInput(render_value=True)
+        form.fields['vpn_password'].widget = forms.PasswordInput(render_value=True)
         return form
 
 

@@ -200,10 +200,12 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
                 if file.endswith(".ovpn"):
                     file_ovpn = file
             if file_ovpn:
-                p = subprocess.Popen(['openvpn', file_ovpn], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user)
+                name_file_auth = "auth.txt"
+                create_file_auth(folder_vpn_certificate_user, user, name_file_auth)
+                p = subprocess.Popen(['openvpn', '--config', file_ovpn, '--auth-user-pass', name_file_auth], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user)
                 stdout, stderr = p.communicate()
                 if stdout:
-                    if bytes('ERROR',"utf-8")  in stdout:
+                    if bytes('ERROR',"utf-8") in stdout:
                         raise Exception(stdout)
                     else:
                         logger.info(stdout)
@@ -211,7 +213,11 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
                     raise Exception(stderr)
             else:
                 raise "VPN file not found"
-
         except:
             raise
+
+def create_file_auth(folder_vpn_certificate_user, user, name_file_auth):
+    if not os.path.exists("{}{}".format(folder_vpn_certificate_user, name_file_auth)):
+        with open('{}{}'.format(folder_vpn_certificate_user, name_file_auth),'w') as out:
+            out.write('{}\n{}'.format(user.svn_user, user.svn_password))
 

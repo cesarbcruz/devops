@@ -20,4 +20,5 @@ class UserAdminForm(forms.ModelForm):
         fields = ['username', 'email', 'name', 'is_active', 'is_staff']
         widgets = {
             'repository_password': forms.PasswordInput(render_value=True),
+            'vpn_password': forms.PasswordInput(render_value=True),
         }

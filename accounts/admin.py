@@ -26,6 +26,9 @@ class UserAdmin(BaseUserAdmin):
         ('Repository information', {
             'fields': ('repository_user', 'repository_password')
         }),
+        ('VPN information', {
+            'fields': ('vpn_user', 'vpn_password')
+        }),
         (
             'Permissions', {
                 'fields': (

@@ -200,7 +200,7 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
                 if file.endswith(".ovpn"):
                     file_ovpn = file
             if file_ovpn:
-                name_file_auth = "auth.txt"
+                name_file_auth = ".auth.txt"
                 create_file_auth(folder_vpn_certificate_user, user, name_file_auth)
                 p = subprocess.Popen(['openvpn', '--config', file_ovpn, '--auth-user-pass', name_file_auth], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user)
                 stdout, stderr = p.communicate()

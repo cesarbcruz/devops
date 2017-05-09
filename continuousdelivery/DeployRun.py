@@ -219,5 +219,5 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
 def create_file_auth(folder_vpn_certificate_user, user, name_file_auth):
     if not os.path.exists("{}{}".format(folder_vpn_certificate_user, name_file_auth)):
         with open('{}{}'.format(folder_vpn_certificate_user, name_file_auth),'w') as out:
-            out.write('{}\n{}'.format(user.svn_user, user.svn_password))
+            out.write('{}\n{}'.format(user.vpn_user, user.vpn_password))
 

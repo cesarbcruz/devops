@@ -194,7 +194,7 @@ def include_path_separator(path):
 def activate_vpn(activate_vpn, user, global_parameters, logger):
     if activate_vpn:
         try:
-            folder_vpn_certificate_user = "{}{}".format(include_path_separator(global_parameters.folder_vpn_certificate), user.username)
+            folder_vpn_certificate_user = "{}{}/".format(include_path_separator(global_parameters.folder_vpn_certificate), user.username)
             file_ovpn = None
             for file in os.listdir(folder_vpn_certificate_user):
                 if file.endswith(".ovpn"):
@@ -217,7 +217,7 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
             raise
 
 def create_file_auth(folder_vpn_certificate_user, user, name_file_auth):
-    if not os.path.exists("{}/{}".format(folder_vpn_certificate_user, name_file_auth)):
+    if not os.path.exists("{}{}".format(folder_vpn_certificate_user, name_file_auth)):
         with open('{}{}'.format(folder_vpn_certificate_user, name_file_auth),'w') as out:
             out.write('{}\n{}'.format(user.vpn_user, user.vpn_password))
 

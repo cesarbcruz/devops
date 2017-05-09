@@ -45,6 +45,7 @@ class DeployForm(forms.Form):
         except Exception as ex:
             logger.error(ex, exc_info=True)
         finally:
+            DeployRun.kill_vpn()
             request.session['log'] = DeployRun.read_log(dirpath)
             try:
                 shutil.rmtree(dirpath, ignore_errors=False)

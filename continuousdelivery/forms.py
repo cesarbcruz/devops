@@ -3,6 +3,7 @@ from django import forms
 import tempfile, errno, shutil, time, os
 from continuousdelivery import DeployRun
 from continuousdelivery.models import Global_Parameters, ServerJboss
+from multiprocessing import Process
 
 class DeployForm(forms.Form):
     url_project_repository = forms.CharField(label='URL Project Repository')
@@ -15,13 +16,13 @@ class DeployForm(forms.Form):
     activate_vpn = forms.BooleanField(required=False,initial=False,label='Activate VPN')
 
     def execute(self, request):
-
         try:
             start_time = time.time()
             dirpath = tempfile.mkdtemp()
             logger = DeployRun.create_log_deploy(dirpath)
             global_parameters = DeployRun.get_global_parameters()
-            DeployRun.activate_vpn(self.cleaned_data['activate_vpn'], request.user, global_parameters, logger)
+            process_vpn = Process(target=DeployRun.activate_vpn, args=(self.cleaned_data['activate_vpn'], request.user, global_parameters, logger))
+            process_vpn.start()
             logger.info('URL project repository: {}'.format(self.cleaned_data['url_project_repository']))
             server_jboss = self.cleaned_data['server_jboss']
             logger.info('Server Jboss destination: {}'.format(server_jboss.ip))

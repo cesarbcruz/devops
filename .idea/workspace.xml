@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e49a037f-2e50-4db8-8de3-a24e96e396e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/DeployRun.py" afterPath="$PROJECT_DIR$/continuousdelivery/DeployRun.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/forms.py" afterPath="$PROJECT_DIR$/continuousdelivery/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requeriments.txt" afterPath="$PROJECT_DIR$/requeriments.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DevOps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,22 +37,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="0.63716817">
+              <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+              <folding>
+                <element signature="e#24#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeployRun.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeployRun.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/continuousdelivery/DeployRun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08506616">
-              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-              <folding />
+            <state vertical-scroll-proportion="-5.5277777">
+              <caret line="193" column="64" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
+              <folding>
+                <element signature="e#24#67#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,8 +175,8 @@
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/accounts/forms.py" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
-        <option value="$PROJECT_DIR$/continuousdelivery/forms.py" />
         <option value="$PROJECT_DIR$/continuousdelivery/DeployRun.py" />
+        <option value="$PROJECT_DIR$/continuousdelivery/forms.py" />
       </list>
     </option>
   </component>
@@ -545,7 +551,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/continuousdelivery/forms.py</url>
-          <line>56</line>
+          <line>57</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
@@ -575,7 +581,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="133" column="119" selection-start-line="133" selection-start-column="119" selection-end-line="133" selection-end-column="119" />
-          <folding />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -625,7 +633,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -675,7 +685,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -709,7 +721,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -907,19 +921,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/DeployRun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="-5.5277777">
+          <caret line="193" column="64" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
+          <folding>
+            <element signature="e#24#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/continuousdelivery/DeployRun.py">
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08506616">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="0.63716817">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

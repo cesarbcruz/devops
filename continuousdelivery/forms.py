@@ -12,6 +12,7 @@ class DeployForm(forms.Form):
         (DeployRun.complete, 'Send binaries and deploy in jboss'),
     )
     type_deploy = forms.ChoiceField(label='Type deploy', widget=forms.Select, choices=TYPE_DEPLOY, initial=DeployRun.partial)
+    activate_vpn = forms.BooleanField(required=False,initial=False,label='Activate VPN')
 
     def execute(self, request):
 
@@ -19,11 +20,12 @@ class DeployForm(forms.Form):
             start_time = time.time()
             dirpath = tempfile.mkdtemp()
             logger = DeployRun.create_log_deploy(dirpath)
+            global_parameters = DeployRun.get_global_parameters()
+            DeployRun.activate_vpn(self.cleaned_data['activate_vpn'], request.user, global_parameters, logger)
             logger.info('URL project repository: {}'.format(self.cleaned_data['url_project_repository']))
             server_jboss = self.cleaned_data['server_jboss']
             logger.info('Server Jboss destination: {}'.format(server_jboss.ip))
             DeployRun.validate_user(request.user)
-            global_parameters = DeployRun.get_global_parameters()
             logger.info('Create dir temp: {}'.format(dirpath))
             DeployRun.checkout_project(self.cleaned_data['url_project_repository'], dirpath, logger)
             binary_files = DeployRun.get_binary_files(dirpath)
@@ -53,7 +55,7 @@ class DeployForm(forms.Form):
 class Global_ParametersAdminForm(forms.ModelForm):
     class Meta:
         model = Global_Parameters
-        fields = ['smtp_server', 'smtp_port', 'email_sender', 'password_email_sender', 'folder_archive_binaries']
+        fields = ['smtp_server', 'smtp_port', 'email_sender', 'password_email_sender', 'folder_archive_binaries', 'folder_vpn_certificate']
         widgets = {
             'password_email_sender': forms.PasswordInput(render_value=True),
         }

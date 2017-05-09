@@ -190,3 +190,28 @@ def include_path_separator(path):
     if not path.endswith('/'):
         path += "/"
     return path
+
+def activate_vpn(activate_vpn, user, global_parameters, logger):
+    if activate_vpn:
+        try:
+            folder_vpn_certificate_user = "{}{}".format(include_path_separator(global_parameters.folder_vpn_certificate), user.username)
+            file_ovpn = None
+            for file in os.listdir(folder_vpn_certificate_user):
+                if file.endswith(".ovpn"):
+                    file_ovpn = file
+            if file_ovpn:
+                p = subprocess.Popen(['openvpn', file_ovpn], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user)
+                stdout, stderr = p.communicate()
+                if stdout:
+                    if bytes('ERROR',"utf-8")  in stdout:
+                        raise Exception(stdout)
+                    else:
+                        logger.info(stdout)
+                if stderr:
+                    raise Exception(stderr)
+            else:
+                raise "VPN file not found"
+
+        except:
+            raise
+

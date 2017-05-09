@@ -44,7 +44,7 @@ def archive_binaries(folder_archive_binaries, version, logger, binary_files):
     subprocess.call("rm -rf {}".format(folder_archive_binaries), shell=True)
     subprocess.call("mkdir {}".format(folder_archive_binaries), shell=True)
     subprocess.call("cp {0} {1}.".format(binary_files, folder_archive_binaries), shell=True)
-    md5sum = subprocess.check_output('md5sum {}*'.format(folder_archive_binaries), shell=True)
+    md5sum = subprocess.check_output("md5sum {0}* | awk {1}".format(folder_archive_binaries, "'{print $1}'"), shell=True)
     logger.info('Archive binaries')
     return md5sum
 
@@ -152,12 +152,14 @@ def send_binaries(hostname, binary_files, folder_destination, username, password
         logger.error("Got the key or connection timeout")
 
     md5sum_origin
-    s.sendline("md5sum {}*".format(folder_destination))
+    s.sendline("md5sum {0}* | awk {1}".format(folder_destination, "'{print $1}'"))
     s.prompt()
     md5sum_destination = s.before
 
-    if md5sum_origin not in md5sum_destination:
-        raise 'Sending binaries failed'
+
+    for line in md5sum_origin.splitlines():
+        if line not in md5sum_destination:
+            raise 'Sending binaries failed md5sum verification'
 
     if type_deploy == str(complete):
         execute_command(s, "cp {0}{1} {2}.".format(folder_destination, "ERP-jar.jar", erp_home), logger)

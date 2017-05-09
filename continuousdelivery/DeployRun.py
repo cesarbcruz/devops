@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import subprocess, os, re, logging, smtplib
 from email.mime.text import MIMEText
-import async as async
 import pexpect
 from pexpect import pxssh
 import os.path
@@ -192,7 +191,6 @@ def include_path_separator(path):
         path += "/"
     return path
 
-@async
 def activate_vpn(activate_vpn, user, global_parameters, logger):
     if activate_vpn:
         try:

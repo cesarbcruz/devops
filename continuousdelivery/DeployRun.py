@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import subprocess, os, re, logging, smtplib
 from email.mime.text import MIMEText
+import async as async
 import pexpect
 from pexpect import pxssh
 import os.path
@@ -191,6 +192,7 @@ def include_path_separator(path):
         path += "/"
     return path
 
+@async
 def activate_vpn(activate_vpn, user, global_parameters, logger):
     if activate_vpn:
         try:
@@ -203,8 +205,7 @@ def activate_vpn(activate_vpn, user, global_parameters, logger):
                 name_file_auth = ".auth.txt"
                 create_file_auth(folder_vpn_certificate_user, user, name_file_auth)
                 kill_vpn()
-                DETACHED_PROCESS = 0x00000008
-                p = subprocess.Popen(['openvpn', '--config', file_ovpn, '--auth-user-pass', name_file_auth], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user, close_fds=True, shell=False, creationflags=DETACHED_PROCESS)
+                p = subprocess.Popen(['openvpn', '--config', file_ovpn, '--auth-user-pass', name_file_auth], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder_vpn_certificate_user)
                 stdout, stderr = p.communicate()
                 if stdout:
                     if bytes('ERROR',"utf-8") in stdout:

@@ -7,7 +7,7 @@
 {% block accounts_container %}
     <h2>Deploy</h2>
     <header class="jumbotron hero-spacer">
-            <form onsubmit="return _validateForm()" class="form-horizontal" method="post">
+            <form id="form" onsubmit="return _validateForm()" class="form-horizontal" method="post">
 			        {% csrf_token %}
 			        <fieldset>
 			            {% for field in form %}
@@ -23,7 +23,7 @@
 			            {% endfor %}
 			            <div class="form-group">
 			              <div class="col-md-9 col-md-offset-3">
-			                <button type="submit" class="btn btn-primary">Run</button>
+			                <button  type="submit"  class="btn btn-primary" onclick="return _confirm()">Run</button>
 			              </div>
 			            </div>
 			        </fieldset>
@@ -31,6 +31,16 @@
 			<script type="text/javascript">
 					function _validateForm(){
 					 	$.blockUI({ message: '<h4>Wait, processing deploy...</h4>' });
+					}
+					function _confirm(){
+					    url = document.getElementById("id_url_project_repository").value;
+					    destination = document.getElementById("id_server_jboss").value;
+					    if(destination > 0 && url){
+					        confirm('Confirm Deploy?');return false;
+					    }else{
+					        return true;
+					    }
+
 					}
 			</script>
         </header>

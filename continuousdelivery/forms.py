@@ -79,7 +79,9 @@ class ArchiveBinariesForm(forms.Form):
         list_version = []
         list_version.append(["", "--------"])
         if os.path.exists(global_parameters.folder_archive_binaries):
-            for file in os.listdir(global_parameters.folder_archive_binaries):
+            list = os.listdir(global_parameters.folder_archive_binaries)
+            list.sort(reverse=True)
+            for file in list:
                 list_version.append(["{}{}".format(global_parameters.folder_archive_binaries, file), file])
         self.fields['versions'] = forms.ChoiceField(widget=forms.Select(), choices=list_version)
 

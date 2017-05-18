@@ -36,7 +36,7 @@
 					    url = document.getElementById("id_url_project_repository").value;
 					    destination = document.getElementById("id_server_jboss").value;
 					    if(destination > 0 && url){
-					        confirm('Confirm Deploy?');return true;
+					        return confirm('Confirm Deploy?');
 					    }else{
 					        return true;
 					    }

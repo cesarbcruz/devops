@@ -66,4 +66,8 @@ class ViewLog(LoginRequiredMixin, TemplateView):
         return context
 
 def tail(f,n):
-    return "\n".join(f.read().split("\n")[-n:])
+    lines = ''
+    for line in f.read().split("\n")[-n:]:
+        if ' "GET ' not in line:
+            lines += line+"\n"
+    return lines

@@ -58,14 +58,12 @@ class ViewLog(LoginRequiredMixin, TemplateView):
         context = super(ViewLog, self).get_context_data(**kwargs)
         log = ""
         try:
-            infile = open('/tmp/devops.log', "r")
-            for line in infile:
-                if not line.strip():
-                    continue
-                else:
-                    log += line
-            infile.close()
+
+            log = tail(open("/tmp/devops.log", "r"), 5)
         except Exception as ex:
             log = ex
         context['log'] = log
         return context
+
+def tail(f,n):
+    return "\n".join(f.read().split("\n")[-n:])

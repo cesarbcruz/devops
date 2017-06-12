@@ -25,11 +25,36 @@ SECRET_KEY = 'jx%t2_-b*w9q9=^a@nq5e59c(g5^xg_wlh05m7b+h=$3h+atk$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import logging
 
-requests_log = logging.getLogger("requests")
-requests_log.addHandler(logging.NullHandler())
-requests_log.propagate = False
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        # use this handler to swallow all logging - this is the nuclear option
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        # use this handler to silence the INFO, DEBUG messages
+        'console': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'requests.packages.urllib3': {
+            # remove the one you don't want to use - no point having both.
+            'handlers': ['null', 'console'],
+            'propagate': False,
+        }
+    }
+}
 
 ALLOWED_HOSTS = ['172.16.50.22', 'localhost', '127.0.0.1']
 

@@ -58,7 +58,7 @@ class ViewLog(LoginRequiredMixin, TemplateView):
         context = super(ViewLog, self).get_context_data(**kwargs)
         log = ""
         try:
-            infile = open('/tmp/deploy.log', "r")
+            infile = open('/tmp/devops.log', "r")
             for line in infile:
                 if not line.strip():
                     continue

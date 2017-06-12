@@ -25,6 +25,12 @@ SECRET_KEY = 'jx%t2_-b*w9q9=^a@nq5e59c(g5^xg_wlh05m7b+h=$3h+atk$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+import logging
+
+requests_log = logging.getLogger("requests")
+requests_log.addHandler(logging.NullHandler())
+requests_log.propagate = False
+
 ALLOWED_HOSTS = ['172.16.50.22', 'localhost', '127.0.0.1']
 
 

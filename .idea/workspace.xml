@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e49a037f-2e50-4db8-8de3-a24e96e396e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DevOps/settings.py" afterPath="$PROJECT_DIR$/DevOps/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/continuousdelivery/views.py" afterPath="$PROJECT_DIR$/continuousdelivery/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DevOps.iws" />
@@ -38,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/continuousdelivery/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,8 +57,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DevOps/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6672598">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.27935943">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -190,8 +190,8 @@
         <option value="$PROJECT_DIR$/accounts/templates/accounts/index.html" />
         <option value="$PROJECT_DIR$/continuousdelivery/templates/deploy.html" />
         <option value="$PROJECT_DIR$/continuousdelivery/templates/view_log.html" />
-        <option value="$PROJECT_DIR$/continuousdelivery/views.py" />
         <option value="$PROJECT_DIR$/DevOps/settings.py" />
+        <option value="$PROJECT_DIR$/continuousdelivery/views.py" />
       </list>
     </option>
   </component>
@@ -964,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/continuousdelivery/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DevOps/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -980,10 +972,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/continuousdelivery/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DevOps/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6672598">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.27935943">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>

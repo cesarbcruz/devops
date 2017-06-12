@@ -1,6 +1,5 @@
 import os
 import zipfile
-from io import StringIO
 from django.http import HttpResponse
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView

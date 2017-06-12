@@ -51,3 +51,21 @@ def zipdir(path, ziph):
         for file in files:
             ziph.write(os.path.join(root, file))
 
+
+class ViewLog(LoginRequiredMixin, TemplateView):
+    template_name = "view_log.html"
+    def get_context_data(self, **kwargs):
+        context = super(ViewLog, self).get_context_data(**kwargs)
+        log = ""
+        try:
+            infile = open('/tmp/deploy.log', "r")
+            for line in infile:
+                if not line.strip():
+                    continue
+                else:
+                    log += line
+            infile.close()
+        except Exception as ex:
+            log = ex
+        context['log'] = log
+        return context

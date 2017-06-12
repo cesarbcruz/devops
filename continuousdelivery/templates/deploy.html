@@ -30,7 +30,7 @@
 			</form>
 			<script type="text/javascript">
 					function _validateForm(){
-					 	$.blockUI({ message: '<h4>Wait, processing deploy...</h4>' });
+					 	$.blockUI({ message: '<h4>Wait, processing deploy...</h4><p><a href="{% url 'viewlog' %}" target="_blank">View system log</a></p>' });
 					}
 					function _confirm(){
 					    url = document.getElementById("id_url_project_repository").value;

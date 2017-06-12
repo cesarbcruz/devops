@@ -1,0 +1,19 @@
+{% extends "accounts/index.html" %}
+{% block accounts_container %}
+        <h2>System Log</h2>
+        <header class="jumbotron hero-spacer">
+             <div class="form-group">
+              <label for="log">View Log:</label>
+               <div class="form-control" id="log" style='background-color:black;color:white;overflow-x:scroll;overflow-y:scroll;white-space: nowrap;height: 400px;'>
+                   {{ log | safe | linebreaksbr }}
+               </div>
+            </div>
+            <p><a href="{% url 'deploy' %}" class="btn btn-primary btn-large">OK</a>
+            </p>
+        </header>
+        <script>
+        setTimeout(function() {
+          location.reload();
+        }, 5000);
+        </script>
+{% endblock %}

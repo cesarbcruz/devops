@@ -59,7 +59,7 @@ class ViewLog(LoginRequiredMixin, TemplateView):
         log = ""
         try:
 
-            log = tail(open("/tmp/devops.log", "r"), 5)
+            log = tail(open("/tmp/devops.log", "r"), 50)
         except Exception as ex:
             log = ex
         context['log'] = log
